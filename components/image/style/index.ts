@@ -80,7 +80,7 @@ export const genImageMaskStyle = (token: ImageToken): CSSObject => {
     opacity: 0,
     transition: `opacity ${motionDurationSlow}`,
 
-    [`.${prefixCls}-mask`]: {
+    [`.${prefixCls}-mask-info`]: {
       ...textEllipsis,
       padding: `0 ${unit(paddingXXS)}`,
       [iconCls]: {

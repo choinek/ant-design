@@ -91,9 +91,14 @@ const Image: CompositionImage<ImageProps> = (props) => {
     const { getContainer, closeIcon, rootClassName, ...restPreviewProps } = _preview;
     return {
       mask: (
-        <div className={`${prefixCls}-mask`}>
-          <EyeOutlined />
-          {imageLocale?.preview}
+        <div
+          className={classNames(`${prefixCls}-mask-info`, mergedClassNames?.mask)}
+          style={mergedStyles?.mask}
+        >
+          <div className={mergedClassNames?.actions} style={mergedStyles?.actions}>
+            <EyeOutlined />
+            {imageLocale?.preview}
+          </div>
         </div>
       ),
       icons,
@@ -123,17 +128,10 @@ const Image: CompositionImage<ImageProps> = (props) => {
     <RcImage
       prefixCls={prefixCls}
       preview={mergedPreview}
-      rootClassName={classNames(
-        mergedRootClassName,
-        imageClassNames?.root,
-        contextClassNames?.root,
-      )}
+      rootClassName={classNames(mergedRootClassName, mergedClassNames?.root)}
       className={mergedClassName}
       style={mergedStyle}
-      classNames={{}}
-      styles={{
-        root: { ...contextStyles.root, ...styles?.root },
-      }}
+      styles={{ root: mergedStyles?.root }}
       {...otherProps}
     />
   );
